@@ -82,6 +82,7 @@ module.exports = function (source) {
     const defaultPlugins = options.isTSX || options.isJSX ? [["@babel/plugin-transform-typescript", { isTSX }]] : []
     const output = babel.transformSync(source, {
       plugins: [...defaultPlugins, annotateDescriptionPlugin],
+      filename: "file.tsx",
       sourceType: "module"
     });
     return output.code
